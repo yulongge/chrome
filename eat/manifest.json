@@ -1,0 +1,12 @@
+{
+  "name" : "eat",
+  "version" : "0.0.1",
+  "description" : "choose eat",
+  "permissions": [ "contentSettings", "tabs" ],
+  "browser_action": {
+     "default_icon": "eat.png",
+     "default_popup": "popup.html"
+  },
+  "manifest_version": 2,
+  "homepage_url": "https://www.google.com/bookmarks/?hl=en"
+}
