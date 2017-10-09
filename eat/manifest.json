@@ -1,12 +1,21 @@
 {
-  "name" : "eat",
-  "version" : "0.0.1",
-  "description" : "choose eat",
-  "permissions": [ "contentSettings", "tabs" ],
-  "browser_action": {
-     "default_icon": "eat.png",
-     "default_popup": "popup.html"
-  },
+  "name": "eat",
+  "description": "eat",
   "manifest_version": 2,
-  "homepage_url": "https://www.google.com/bookmarks/?hl=en"
+  "minimum_chrome_version": "23",
+  "version": "1.2",
+  "offline_enabled": true,
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "browser_action": {
+      "default_title": "Print this page",
+      "default_icon": "eat.png"
+  },
+  "permissions" : [
+    "clipboardWrite"
+  ],
+  "icons": {
+    "16": "eat.png"
+  }
 }

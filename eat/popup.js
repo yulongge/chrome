@@ -1,31 +1,34 @@
-var container = document.getElementById('container'),
-li = document.getElementsByTagName('li'),
-aa = document.getElementById('start'),
-pp = document.getElementById('pp'),
-timer = null;
+function stops(){
+   return false;
+}
+document.oncontextmenu=stops;
 
-console.log(aa, 'add');
-function start(){
-var i = 0;
-var num = Math.floor(Math.random() * li.length) + 20;
-if(i<num){
-timer = setInterval(function(){
-for(var j=0;j<li.length;j++){
- li[j].className = '';
-}
-li[i%li.length].className = 'active';
-i++;
-if(i === num){
- clearInterval(timer);
- if(num%li.length === 0){
- pp.innerHTML += "恭喜您中了：8 等奖" + '<br/>';
- }else{
- pp.innerHTML += "恭喜您中了："+ parseInt(num%li.length) + " 等奖"+ '<br/>';
- }
-}
-},130);
-}
-}
-aa.onclick = function(){
-start();
-}
+(function($){
+	var list = $('content').children, len = list.length, begin = $('begin'), index = 0, interval = null;
+
+	begin.onclick = function(){
+		if(this.running)return;
+		this.running = true;
+		this.remain = 3000 + Math.random() * 5000;
+		interval = setInterval(function(){
+			if( begin.remain < 200 ){
+				begin.running = false;
+				//alert( '你抽中了: '+list[index].innerHTML );
+				clearInterval(interval);
+			}else{
+				list[index].className = "";
+				list[(index+1) % len].className = "current";
+				index = ++index % len;
+				begin.remain -= 100;
+			}
+		},100);
+	};
+
+	var mm = 3;
+
+	window.fn = function(){
+		//alert(mm);
+	};
+	mm += 3;
+
+})(function(id){return document.getElementById(id)});
