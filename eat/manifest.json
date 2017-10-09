@@ -1,21 +1,33 @@
 {
-  "name": "eat",
-  "description": "eat",
-  "manifest_version": 2,
-  "minimum_chrome_version": "23",
-  "version": "1.2",
-  "offline_enabled": true,
-  "background": {
-    "scripts": ["js/background.js"]
-  },
-  "browser_action": {
-      "default_title": "Print this page",
-      "default_icon": "eat.png"
-  },
-  "permissions" : [
-    "clipboardWrite"
-  ],
-  "icons": {
-    "16": "eat.png"
-  }
+    "name": "eat",
+    "description": "eat",
+    "manifest_version": 2,
+    "minimum_chrome_version": "23",
+    "version": "1.2",
+    "offline_enabled": true,
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "default_icon": "eat.png",
+        "default_popup": "popup.html",
+        "default_title": "我们吃啥啊?"
+    },
+    /*"page_action": {
+        "default_icon": "eat.png"
+    },*/
+    "permissions" : [
+        "clipboardWrite",
+        "contextMenus",
+        "notifications",
+        "declarativeContent"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "popup.html"
+    },
+    "icons": {
+        "16": "eat.png"
+    },
+    //"options_page": "popup.html",
+    "homepage_url": "http://manage.dev.acewill.net/"
 }
